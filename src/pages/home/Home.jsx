@@ -4,6 +4,7 @@ import "./home.scss";
 import Widget from "../../components/widget/Widget";
 import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
+import MyBreadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 
 const Home = () => {
   return (
@@ -17,10 +18,15 @@ const Home = () => {
           <Widget type="earning" />
         </div>
         <div className="charts">
-          <Chart title="Thu nhập trong tuần" aspect={3 / 1} />
+          <Chart
+            title="Thu nhập trong tuần"
+            aspect={3 / 1}
+          />
         </div>
         <div className="listContainer">
-          <div className="listTitle">Các đơn hàng gần đây</div>
+          <div className="listTitle">
+            Các đơn hàng gần đây
+          </div>
           <Table />
         </div>
       </div>
