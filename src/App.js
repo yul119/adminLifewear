@@ -7,7 +7,7 @@ import {
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import Users from "./pages/Users";
+import Users from "./pages/users/Users";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);

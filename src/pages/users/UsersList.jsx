@@ -5,10 +5,10 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { usersSelector } from "../store/selectors";
-import { fetchUsers } from "../store/slices/usersSlice";
-import { formatDate } from "../lib/helper";
-import MyBreadcrumbs from "../components/breadcrumbs/Breadcrumbs";
+import { usersSelector } from "../../store/selectors";
+import { fetchUsers } from "../../store/slices/usersSlice";
+import { formatDate } from "../../lib/helper";
+import MyBreadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 
 export default function UserList() {
   const dispatch = useDispatch();
