@@ -1,10 +1,14 @@
 .userList {
-  height: 90vh;
+  height: 80vh;
   padding: 0 10px;
-  .userListView {
-    color: #3bb077;
-    cursor: pointer;
-    margin: 0 20px;
+  a {
+    display: flex;
+    align-items: center;
+    .userListView {
+      color: #3bb077;
+      cursor: pointer;
+      margin: 0 20px;
+    }
   }
   .userListDelete {
     color: red;

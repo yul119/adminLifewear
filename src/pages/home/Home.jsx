@@ -4,7 +4,6 @@ import "./home.scss";
 import Widget from "../../components/widget/Widget";
 import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
-import MyBreadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 
 const Home = () => {
   return (
@@ -24,9 +23,7 @@ const Home = () => {
           />
         </div>
         <div className="listContainer">
-          <div className="listTitle">
-            Các đơn hàng gần đây
-          </div>
+          <div className="listTitle">Recent orders</div>
           <Table />
         </div>
       </div>

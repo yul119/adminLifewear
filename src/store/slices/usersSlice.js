@@ -3,12 +3,13 @@ import {
   createAsyncThunk,
 } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../lib/constant";
 
 export const fetchUsers = createAsyncThunk(
   "users/fetchUsers",
   async () => {
     const data = axios
-      .get("/admin/users?page=1")
+      .get(`${BASE_URL}/admin/users?page=1`)
       .then((res) => res.data.data);
     return data;
   }

@@ -74,8 +74,7 @@ export default function UserList() {
         rows={userRows}
         disableSelectionOnClick
         columns={columns}
-        pageSize={10}
-        checkboxSelection
+        pageSize={8}
       />
     </div>
   );

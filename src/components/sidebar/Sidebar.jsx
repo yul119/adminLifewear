@@ -23,40 +23,49 @@ const Sidebar = () => {
         <ul>
           <p className="title">MAIN</p>
           <Link to="/" style={{ textDecoration: "none" }}>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
           </Link>
-          <p className="title">Danh sách</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <p className="title">ADMINISTRATION</p>
+          <Link
+            to="/users"
+            style={{ textDecoration: "none" }}
+          >
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>Người dùng</span>
+              <span>Users</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <Link
+            to="/products"
+            style={{ textDecoration: "none" }}
+          >
             <li>
               <StoreIcon className="icon" />
-              <span>Sản phẩm</span>
+              <span>Products</span>
             </li>
           </Link>
-          <Link to="/categories" style={{ textDecoration: "none" }}>
-             <li>
+          <Link
+            to="/categories"
+            style={{ textDecoration: "none" }}
+          >
+            <li>
               <CreditCardIcon className="icon" />
-               <span>Thể loại</span>
-             </li>
+              <span>Categories</span>
+            </li>
           </Link>
-         <p className="title">Admin</p>
+          <p className="title">ADMIN</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
-            <span>Thông tin</span>
+            <span>Infomation</span>
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Đăng xuất</span>
+            <span>Logout</span>
           </li>
-         <p className="title">Chế độ</p>
+          <p className="title">MODE</p>
         </ul>
       </div>
       <div className="bottom">

@@ -1,0 +1,56 @@
+.productList {
+  height: 80vh;
+  padding: 0 10px;
+
+  .productListProduct {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .productListImg {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 10px 0;
+  }
+
+  .productListPrice {
+    .salePrice {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgb(255, 0, 0);
+    }
+    .oldPrice {
+      text-decoration: line-through;
+      color: rgb(71, 71, 71);
+    }
+  }
+  .productListAction {
+    display: flex;
+    align-items: center;
+    a {
+      display: flex;
+      align-items: center;
+      margin-right: 50px;
+      .productListView {
+        color: #3bb077;
+        cursor: pointer;
+      }
+    }
+    .productListDelete {
+    }
+    color: red;
+    cursor: pointer;
+    margin: 0 40px;
+  }
+}
+
+// .userListImg {
+//   width: 32px;
+//   height: 32px;
+//   border-radius: 50%;
+//   object-fit: cover;
+//   margin-right: 10px;
+// }

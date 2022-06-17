@@ -8,6 +8,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import Users from "./pages/users/Users";
+import Products from "./pages/products/Products";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -22,7 +23,7 @@ function App() {
               <Route index element={<Users />} />
             </Route>
             <Route path="products">
-              <Route index element={<Home />} />
+              <Route index element={<Products />} />
             </Route>
             <Route path="categories">
               <Route index element={<Home />} />
