@@ -10,13 +10,16 @@ import { fetchProducts } from "../../store/slices/productsSlice";
 import { formatDate, formatMoney } from "../../lib/helper";
 import MyBreadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { Rating } from "@mui/material";
+import LinearProgress from "@mui/material/LinearProgress";
 
 export default function ProductList() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  const productRows = useSelector(productsSelector);
+  const productsReducer = useSelector(productsSelector);
+  const productRows = productsReducer.products;
+  const isLoading = productsReducer.isLoading;
   console.log(
     "🚀 ~ file: ProductsLlist.jsx ~ line 19 ~ ProductList ~ productRows",
     productRows
@@ -99,6 +102,12 @@ export default function ProductList() {
         getRowHeight={() => "auto"}
         columns={columns}
         pageSize={10}
+        components={
+          isLoading && {
+            LoadingOverlay: LinearProgress,
+          }
+        }
+       loading = {isLoading}
       />
     </div>
   );

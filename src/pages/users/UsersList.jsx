@@ -9,13 +9,16 @@ import { usersSelector } from "../../store/selectors";
 import { fetchUsers } from "../../store/slices/usersSlice";
 import { formatDate } from "../../lib/helper";
 import MyBreadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import LinearProgress from "@mui/material/LinearProgress";
 
 export default function UserList() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
-  const userRows = useSelector(usersSelector);
+  const usersReducer = useSelector(usersSelector);
+  const userRows = usersReducer.users;
+  const isLoading = usersReducer.isLoading;
   // console.log(
   // "🚀 ~ file: UsersList.jsx ~ line 16 ~ UserList ~ userRows",
   // userRows
@@ -74,6 +77,12 @@ export default function UserList() {
         rows={userRows}
         disableSelectionOnClick
         columns={columns}
+        components={
+          isLoading && {
+            LoadingOverlay: LinearProgress,
+          }
+        }
+        loading={isLoading}
         pageSize={8}
       />
     </div>

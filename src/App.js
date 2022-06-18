@@ -4,34 +4,27 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import "./style/dark.scss";
-import { useContext } from "react";
-import { DarkModeContext } from "./context/darkModeContext";
 import Users from "./pages/users/Users";
 import Products from "./pages/products/Products";
 
 function App() {
-  const { darkMode } = useContext(DarkModeContext);
-
   return (
-    <div className={darkMode ? "app dark" : "app"}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="users">
-              <Route index element={<Users />} />
-            </Route>
-            <Route path="products">
-              <Route index element={<Products />} />
-            </Route>
-            <Route path="categories">
-              <Route index element={<Home />} />
-            </Route>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="users">
+            <Route index element={<Users />} />
           </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+          <Route path="products">
+            <Route index element={<Products />} />
+          </Route>
+          <Route path="categories">
+            <Route index element={<Home />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
