@@ -1,14 +1,14 @@
-.productList {
+.categoriesList {
   height: 80vh;
   padding: 0 10px;
 
-  .productListProduct {
+  .categoriesListcategories {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .productListImg {
+  .categoriesListImg {
     width: 150px;
     height: 150px;
     border-radius: 5px;
@@ -16,7 +16,7 @@
     margin: 10px 0;
   }
 
-  .productListPrice {
+  .categoriesListPrice {
     .salePrice {
       font-size: 18px;
       font-weight: 600;
@@ -27,7 +27,7 @@
       color: rgb(71, 71, 71);
     }
   }
-  .productListAction {
+  .categoriesListAction {
     display: flex;
     align-items: center;
     a {
@@ -35,7 +35,7 @@
       align-items: center;
       margin-right: 40px;
       margin-left: 0px !important;
-      .productListView {
+      .categoriesListView {
         color: rgb(52 52 52);
         cursor: pointer;
       }
@@ -44,12 +44,12 @@
       display: flex;
       align-items: center;
       margin-right: 40px;
-      .productListEdit {
+      .categoriesListEdit {
         color: #3bb077;
         cursor: pointer;
       }
     }
-    .productListDelete {
+    .categoriesListDelete {
       color: red;
       cursor: pointer;
     }

@@ -5,9 +5,9 @@
     display: flex;
     align-items: center;
     .userListView {
-      color: #3bb077;
+      color: rgb(25 118 210);
       cursor: pointer;
-      margin: 0 20px;
+      margin: 0 20px 0 0 !important;
     }
   }
   .userListDelete {

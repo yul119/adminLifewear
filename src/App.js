@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Users from "./pages/users/Users";
 import Products from "./pages/products/Products";
+import Categories from "./pages/categories/Categories";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Route index element={<Products />} />
           </Route>
           <Route path="categories">
-            <Route index element={<Home />} />
+            <Route index element={<Categories />} />
           </Route>
         </Route>
       </Routes>

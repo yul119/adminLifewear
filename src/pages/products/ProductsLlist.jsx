@@ -1,7 +1,7 @@
 import "./productList.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import { formatDate, formatMoney } from "../../lib/helper";
 import MyBreadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { Rating } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
+import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 
 export default function ProductList() {
   const dispatch = useDispatch();
@@ -85,7 +86,10 @@ export default function ProductList() {
         return (
           <div className="productListAction">
             <Link to={"/products/"}>
-              <RemoveRedEyeOutlinedIcon className="productListView" />
+              <ModeEditOutlineOutlinedIcon className="productListEdit" />
+            </Link>
+            <Link to={"/products/"}>
+              <VisibilityOffOutlinedIcon className="productListView" />
             </Link>
             <DeleteOutlineOutlinedIcon className="productListDelete" />
           </div>
@@ -107,7 +111,7 @@ export default function ProductList() {
             LoadingOverlay: LinearProgress,
           }
         }
-       loading = {isLoading}
+        loading={isLoading}
       />
     </div>
   );

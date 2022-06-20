@@ -11,17 +11,26 @@ export const fetchProducts = createAsyncThunk(
     const data = axios
       .get(`${BASE_URL}/products`)
       .then((res) => res.data.data);
-    // console.log(
-    // "🚀 ~ file: productsSlice.jsx ~ line 13 ~ data",
-    // data
-    // );
+    return data;
+  }
+);
+export const getProcessProduct = createAsyncThunk(
+  "products/getProcessProduct",
+  async (slug) => {
+    const data = axios
+      .get(`${BASE_URL}/products/${slug}`)
+      .then((res) => res.data);
     return data;
   }
 );
 
 const productsSlice = createSlice({
   name: "products",
-  initialState: { isLoading: false, products: [] },
+  initialState: {
+    isLoading: false,
+    products: [],
+    processProduct: {},
+  },
   extraReducers: {
     // get all products
     [fetchProducts.pending]: (state, action) => {
@@ -32,6 +41,19 @@ const productsSlice = createSlice({
       state.products = action.payload;
     },
     [fetchProducts.rejected]: (state, action) => {
+      state.isLoading = false;
+      console.log("false");
+    },
+
+    // get process products
+    [getProcessProduct.pending]: (state, action) => {
+      state.isLoading = true;
+    },
+    [getProcessProduct.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.processProduct = action.payload;
+    },
+    [getProcessProduct.rejected]: (state, action) => {
       state.isLoading = false;
       console.log("false");
     },
