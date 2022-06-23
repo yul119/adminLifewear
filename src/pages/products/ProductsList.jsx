@@ -2,13 +2,12 @@ import "./productList.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { productsSelector } from "../../store/selectors";
 import { fetchProducts } from "../../store/slices/productsSlice";
 import { formatDate, formatMoney } from "../../lib/helper";
-import MyBreadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { Rating } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
@@ -19,14 +18,12 @@ export default function ProductList() {
     dispatch(fetchProducts());
   }, [dispatch]);
   const productsReducer = useSelector(productsSelector);
-  const productRows = productsReducer.products;
+  const productRows = productsReducer.activeProducts;
   const isLoading = productsReducer.isLoading;
   console.log(
     "🚀 ~ file: ProductsLlist.jsx ~ line 19 ~ ProductList ~ productRows",
     productRows
   );
-
-  const loaction = useLocation();
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -85,7 +82,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListAction">
-            <Link to={"/products/"}>
+            <Link to={`/products/edit/${params.row.id}`}>
               <ModeEditOutlineOutlinedIcon className="productListEdit" />
             </Link>
             <Link to={"/products/"}>
@@ -100,12 +97,11 @@ export default function ProductList() {
 
   return (
     <div className="productList">
-      <MyBreadcrumbs url={loaction.pathname} />
       <DataGrid
         rows={productRows}
         getRowHeight={() => "auto"}
         columns={columns}
-        pageSize={10}
+        pageSize={30}
         components={
           isLoading && {
             LoadingOverlay: LinearProgress,

@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BASE_URL } from "../../lib/constant";
+import { BACKEND_BASE_URL } from "../../lib/constant";
 import { formatDate, formatMoney } from "../../lib/helper";
 
 const List = () => {
@@ -16,7 +16,7 @@ const List = () => {
   useEffect(() => {
     axios
       .get(
-        `${BASE_URL}/admin/orders?page=1&fbclid=IwAR1YtginWmf3nAPZIKLQr2czceAuTC38OZkqMcHxKuf1IzqGA_-GikEkqO8`
+        `${BACKEND_BASE_URL}/admin/orders?page=1&fbclid=IwAR1YtginWmf3nAPZIKLQr2czceAuTC38OZkqMcHxKuf1IzqGA_-GikEkqO8`
       )
       .then((response) => setData([...response.data.data]));
   }, []);

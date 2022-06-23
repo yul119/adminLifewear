@@ -25,6 +25,11 @@ export default function CategoriesList() {
     dispatch(fetchCategories());
   }, [dispatch]);
   const categoriesReducer = useSelector(categoriesSelector);
+  const categoriesRows = categoriesReducer.categories;
+  console.log(
+    "🚀 ~ file: CategoriesList.jsx ~ line 29 ~ CategoriesList ~ categoriesRows",
+    categoriesRows
+  );
   const isLoading = categoriesReducer.isLoading;
 
   const loaction = useLocation();
@@ -33,9 +38,11 @@ export default function CategoriesList() {
     { field: "id", headerName: "Id", width: 100 },
     { field: "name", headerName: "Name", width: 300 },
     {
-      field: "parentName",
+      field: "parent",
       headerName: "Parent Name",
       width: 250,
+      renderCell: (params) =>
+        params.row.parent ? params.row.parent.name : "-",
     },
     {
       field: "description",
@@ -58,31 +65,6 @@ export default function CategoriesList() {
       },
     },
   ];
-
-  const categoriesRows = [];
-  categoriesReducer.categories.map((el) => {
-    const obj = {};
-    obj.id = el.id;
-    obj.name = el.name;
-    obj.description = el.description;
-    obj.parentId = "-";
-    obj.parentName = "-";
-
-    categoriesRows.push(obj);
-  });
-
-  categoriesReducer.categories.map((el) => {
-    el.children.map((ell) => {
-      const obj = {};
-      obj.id = ell.id;
-      obj.name = ell.name;
-      obj.description = ell.description;
-      obj.parentId = el.id;
-      obj.parentName = el.name;
-
-      categoriesRows.push(obj);
-    });
-  });
 
   return (
     <div className="categoriesList">

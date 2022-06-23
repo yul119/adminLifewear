@@ -5,6 +5,10 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
+import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
+import ImportExportOutlinedIcon from "@mui/icons-material/ImportExportOutlined";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -25,6 +29,7 @@ const Sidebar = () => {
               <span>Dashboard</span>
             </li>
           </Link>
+
           <p className="title">ADMINISTRATION</p>
           <Link
             to="/users"
@@ -53,7 +58,35 @@ const Sidebar = () => {
               <span>Categories</span>
             </li>
           </Link>
-          <p className="title">ADMIN</p>
+          <Link
+            to="/orders"
+            style={{ textDecoration: "none" }}
+          >
+            <li>
+              <ShoppingCartOutlinedIcon className="icon" />
+              <span>Orders</span>
+            </li>
+          </Link>
+          <Link
+            to="/staffs"
+            style={{ textDecoration: "none" }}
+          >
+            <li>
+              <BadgeOutlinedIcon className="icon" />
+              <span>Our Staffs</span>
+            </li>
+          </Link>
+          <p className="title">IMPORT</p>
+          <li>
+            <ImportExportOutlinedIcon className="icon" />
+            <span>Import Products</span>
+          </li>
+          <li>
+            <HistoryOutlinedIcon className="icon" />
+            <span>History</span>
+          </li>
+          <p className="title">REPORT</p>
+          <p className="title"> ACCOUNT</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Infomation</span>

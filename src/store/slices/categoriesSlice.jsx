@@ -1,16 +1,13 @@
-import {
-  createSlice,
-  createAsyncThunk,
-} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../../lib/constant";
+import { BACKEND_BASE_URL } from "../../lib/constant";
 
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
   async () => {
     const data = axios
-      .get(`${BASE_URL}/categories`)
-      .then((res) => res.data);
+      .get(`${BACKEND_BASE_URL}/categories?perpage=40`)
+      .then((res) => res.data.data);
     return data;
   }
 );

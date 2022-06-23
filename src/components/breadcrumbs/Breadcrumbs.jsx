@@ -7,43 +7,32 @@ import { capitalizeFirstLetter } from "../../lib/helper";
 
 export default function MyBreadcrumbs({ url }) {
   const arr = url.split("/");
-  arr.  shift();
+  arr.shift();
   const currentRoute = arr.pop();
-  // console.log(
-  // "🚀 ~ file: Breadcrumbs.jsx ~ line 12 ~ MyBreadcrumbs ~ arr",
-  // arr
-  // );
-  // console.log(
-  // "🚀 ~ file: Breadcrumbs.jsx ~ line 12 ~ MyBreadcrumbs ~ currentRoute",
-  // currentRoute
-  // );
   const arr2 = [];
 
-  for (let i = 0; i <arr.length - 1; i++) {
-    const arr3 = [];
-    for (let j = 0; j <= i; i++) {
-      arr3.push(arr[j]);
-    }
-    arr2.push(arr3);
-  }
-  // console.log(
-  // "🚀 ~ file: Breadcrumbs.jsx ~ line 20 ~ MyBreadcrumbs ~ arr2",
-  // arr2
-  // );
+  const arr3 = arr.map((el) => {
+    arr2.push(el);
+    return [...arr2];
+  });
+  console.log(
+    "🚀 ~ file: Breadcrumbs.jsx ~ line 20 ~ MyBreadcrumbs ~ arr2",
+    arr3
+  );
   return (
     <div role="presentation" className="myBreadcrumbs">
       <Breadcrumbs aria-label="breadcrumb">
         <Link underline="hover" color="inherit" href="/">
           DASHBOARD
         </Link>
-        {arr2 !== [] &&
-          arr2.map((el) => {
+        {arr3 !== [] &&
+          arr3.map((el) => {
             const subUrl = el.join("/");
             return (
               <Link
                 underline="hover"
                 color="inherit"
-                href={subUrl}
+                href={`/${subUrl}`}
               >
                 {capitalizeFirstLetter(el[el.length - 1])}
               </Link>

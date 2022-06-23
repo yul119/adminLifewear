@@ -18,11 +18,12 @@
 
   .productListPrice {
     .salePrice {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
       color: rgb(255, 0, 0);
     }
     .oldPrice {
+      font-size: 12px;
       text-decoration: line-through;
       color: rgb(71, 71, 71);
     }
